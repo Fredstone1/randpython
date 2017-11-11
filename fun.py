@@ -1,8 +1,9 @@
 import csv
-import bs4
+from bs4 import BeautifulSoup
 import numpy as np
 
 class crypto:
+    list = []
     def updatecsv(csvfile, data):
         with open(csvfile, 'w') as cf:
             wr = csv.writer(cf, delimiter=',')
@@ -17,12 +18,19 @@ class crypto:
                 print(''.join(row))
             cf.close()
 
-    def portfolio():
+    #def portfolio():
+    def addcoin(coinname):
+        list.append([coinname])
 
 
-    coin1 = ['vtc', 4.8, 5.1]
-    coin1.append(5.3)
-    coin2 = ['btc', 5900, 6100, 6200]
-    data = [coin1, coin2]
-    updatecsv('crypto.csv', data)
-    seecsv('crypto.csv')
+    addcoin('btcbitcoin')
+    print(list)
+
+    #coin1 = ['vtcvertcoin']
+    #coin1.append(5.3)
+    #coin2 = ['btcbitcoin']
+    #data = [coin1, coin2]
+    #updatecsv('crypto.csv', data)
+    #seecsv('crypto.csv')
+
+
