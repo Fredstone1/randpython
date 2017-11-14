@@ -9,8 +9,6 @@ my_list = []
 data = []
 pfval = []
 def updatePF():
-    print(data)
-    print(my_list)
     page = requests.get('https://coinmarketcap.com')
     soup = BeautifulSoup(page.content, 'html.parser')
     tmp = soup.find('tr', id='id-bitcoin').get_text()
@@ -25,6 +23,7 @@ def updatePF():
             if data[i][0] in my_list[x] and data[i][1] not in my_list[x]:
                 my_list[x].append(data[i][1])
     updatecsv('crypto.csv',my_list)
+    del data[:]
 
 def updatecsv(csvfile, datalist):
     with open(csvfile, 'w') as cf:
