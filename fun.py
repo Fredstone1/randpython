@@ -39,9 +39,6 @@ def seecsv(csvfile):
             print(''.join(row))
         cf.close()
 
-#def portfolio():
-
-#def calcPFVal():
 
 def addcoin(coinname):
     my_list.append([coinname])
