@@ -10,7 +10,6 @@ data = []
 for tr in soup.find_all('tr')[1:]:
     tds = tr.find_all('td')
     data.append([tds[1].text.strip('\n').lower(), tds[3].text.strip('\n').lower()])
-#print(data)
 for i in range(len(data)):
     data[i][0] = data[i][0].replace('\n','')
     data[i][1] = data[i][1].replace('$','')
