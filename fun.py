@@ -74,7 +74,6 @@ print(my_list)
 
 print(timeList)
 
-print('sut røv GITHUB')
 
 print("------ %s seconds ------" % (time.time() - start_time))
 
