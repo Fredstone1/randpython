@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d924ae20-c31f-460c-9a28-824e93f78d17" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crypto.csv" afterPath="$PROJECT_DIR$/crypto.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fun.py" afterPath="$PROJECT_DIR$/fun.py" />
-    </list>
+    <list default="true" id="d924ae20-c31f-460c-9a28-824e93f78d17" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
