@@ -4,6 +4,7 @@ import numpy as np
 import requests
 import time
 
+start_time = time.time()
 
 my_list = []
 with open('crypto.csv', 'r') as f:
@@ -19,6 +20,8 @@ with open('portfolio.csv', 'r') as f:
 
 data = []
 pfval = []
+PFsum = 0
+
 
 class crypto():
     def updatePF(self):
@@ -37,7 +40,7 @@ class crypto():
                     my_list[x].append(data[i][1])
                     my_list[x].append(tid)
                     break
-        self.updatecsv('crypto.csv',my_list)
+        self.updatecsv('crypto.csv', my_list)
         del data[:]
         return my_list and data and tid
 
@@ -65,7 +68,7 @@ class crypto():
             if coinname in portfolio[x]:
                 break
         else:
-            portfolio.append([coinname,amount])
+            portfolio.append([coinname, amount])
 
         self.updatecsv('portfolio.csv', portfolio)
         return my_list and portfolio
@@ -74,34 +77,33 @@ class crypto():
         tid = time.strftime('%c')
         self.updatePF()
         PFsum = 0
-        for x in range(len(portfolio)-1):
+        for x in range(len(portfolio) - 1):
             for i in range(len(my_list)):
                 if portfolio[x][0] in my_list[x]:
-                    tmp1 =  float(my_list[x][len(my_list[x])-2])
+                    tmp1 = float(my_list[x][len(my_list[x]) - 2])
                     tmp2 = float((portfolio[x][1]))
-                    PFsum = PFsum + tmp1*tmp2
+                    PFsum = PFsum + tmp1 * tmp2
                 if 'hej' in portfolio[x]:
                     portfolio.remove(portfolio[x])
-        PFsum = str(round(PFsum,2)) + ' $'
-
-        print(portfolio)
-        portfolio.append([PFsum,tid,'hej'])
-        self.updatecsv('portfolio.csv',portfolio)
+        PFsum = str(round(PFsum, 2)) + ' $'
+        portfolio.append([PFsum, tid, 'hej'])
+        self.updatecsv('portfolio.csv', portfolio)
         return PFsum
 
-    #def createGraph(self, csvfile):
+        # def createGraph(self, csvfile):
+
 
 f = crypto()
-f.addcoin('btcbitcoin')
-f.addcoin('vtcvertcoin')
+f.addcoin('vtcvertcoin', 17.812)
+f.addcoin('omgomisego', 2.4975)
+f.addcoin('xrpripple', 40)
+f.addcoin('neoneo', 0.48749)
+f.addcoin('arkark', 5.9975)
+f.addcoin('xlmstellar lumens', 234.535)
 f.updatePF()
 print('\n ')
-
-print(my_list)
-
-print(timeList)
+print(f.calcPFVal())
+# print(timeList)
 
 
 print("------ %s seconds ------" % (time.time() - start_time))
-
-
